@@ -4,15 +4,15 @@ import { hotelsRepository } from '@/repositories';
 async function getHotels() {
   const hotels = await hotelsRepository.getHotels();
 
-  if (hotels.length == 0) notFoundError();
+  if (hotels.length === 0) throw notFoundError();
 
   return hotels;
 }
 
-async function getHotelById(id: number) {
-  const hotel = await hotelsRepository.getHotelById(id);
+async function getHotelById(hotelId: number) {
+  const hotel = await hotelsRepository.getHotelById(hotelId);
 
-  if (!hotel) notFoundError();
+  if (!hotel) throw notFoundError();
 
   return hotel;
 }

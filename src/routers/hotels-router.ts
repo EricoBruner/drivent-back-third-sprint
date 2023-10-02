@@ -4,6 +4,10 @@ import { Router } from 'express';
 
 const hotelsRouter = Router();
 
-hotelsRouter.all('/*', authenticateToken).all('/*', hotelsMiddleware).get('/', getHotels).get('/:id', getHotelById);
+hotelsRouter
+  .all('/*', authenticateToken)
+  .all('/*', hotelsMiddleware)
+  .get('/', getHotels)
+  .get('/:hotelId', getHotelById);
 
 export { hotelsRouter };
